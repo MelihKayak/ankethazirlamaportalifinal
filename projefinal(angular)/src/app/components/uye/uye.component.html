@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Üyeler</h1>
+  
+  
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="Üye Ara..." >
+  </mat-form-field>
+  
+  
+  <button mat-fab matTooltip="Üye Ekle" color="accent" (click)="Ekle()" class="mat-elevation-z8">
+    <mat-icon aria-label="label">person_add</mat-icon>
+  <p>&nbsp;</p>
+  </button>
+    <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z4">
+      
+      <ng-container matColumnDef="uyeNo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Üye No
+        </mat-header-cell>
+        <mat-cell *matCellDef="let kayit"> {{kayit.uyeNo}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="uyeAdSoyad">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Üye Adı Soyadı
+        </mat-header-cell>
+        <mat-cell *matCellDef="let kayit"> {{kayit.uyeAdSoyad}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="islemler">
+        <mat-header-cell *matHeaderCellDef> İşlemler
+        </mat-header-cell>
+        <mat-cell *matCellDef="let kayit">
+  
+          <button mat-icon-button  color="primary" matTooltip="Üye Detay" [routerLink]="['/kategorilistele',kayit.uyeId]">
+            <mat-icon aria-label="label">article</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" matTooltip="Üye Düzenle" (click)="Duzenle(kayit)" >
+            <mat-icon aria-label="label">edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" matTooltip="Üye Sil" (click)="Sil(kayit)">
+            <mat-icon aria-label="label">delete</mat-icon>
+          </button>
+  
+        </mat-cell>
+      </ng-container>
+    
+  
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator
+          [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+  
+  </div>

@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Anket Liste</h1>
+  <button mat-fab matTooltip="Anket Ekle" (click)="Ekle()">
+    <mat-icon aria-label="label">library_add</mat-icon>
+  </button>
+  <p>&nbsp;
+  </p>
+
+  <mat-form-field appearance="outline" style="width: 50%;">
+  <mat-label>Kategori Seçiniz</mat-label>
+  <mat-select placeholder="Kategori Seçiniz" (selectionChange)="KategoriSec($event.value)">
+    <mat-option [value]="kategori" *ngFor="let kategori of kategoriler">{{kategori.kategoriAdi}}</mat-option>
+  </mat-select>
+  </mat-form-field>
+
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z20" matSort>
+    <ng-container matColumnDef="anketAdi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Anket Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.anketAdi}} </mat-cell>
+    </ng-container>
+ 
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+
+        <button mat-icon-button color="accent" matTooltip="Anket Düzenle" (click)="Duzenle(kayit)" >
+          <mat-icon aria-label="label">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" matTooltip="Anket Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+
+      </mat-cell>
+    </ng-container>
+  
+
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+  </mat-paginator>
+</div>

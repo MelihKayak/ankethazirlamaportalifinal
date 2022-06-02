@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>{{dialogBaslik}}</span>
+</mat-toolbar>
+<div class="container">
+  <form [formGroup]="frm">
+  <mat-form-field appearance="outline" style="width: 50%;">
+      <mat-label>Kategori Seçiniz</mat-label>
+      <mat-select placeholder="Kategori Seçiniz" (selectionChange)="KategoriSec($event.value)" name="anketKategoriId" formControlName="anketKategoriId">
+      <mat-option [value]="kategori.kategoriId" *ngFor="let kategori of kategoriler">{{kategori.kategoriAdi}}</mat-option>
+      </mat-select>
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Anket Sorusu</mat-label>
+      <input matInput placeholder="Ödev Adı" name="anketAdi" formControlName="anketAdi" type="text" required>
+    </mat-form-field>
+  </form>
+
+ <button mat-raised-button color="primary" (click)="dialogRef.close(frm.value)" [disabled]="frm.invalid">Kaydet</button>&nbsp;
+ <button mat-raised-button color="warn" (click)="dialogRef.close()">İptal</button>
+
+</div>

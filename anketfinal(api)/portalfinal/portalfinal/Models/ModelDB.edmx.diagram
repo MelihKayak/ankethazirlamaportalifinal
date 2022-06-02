@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e55d834ac0a046c4a92c80b4c1b69fbe" Name="Diagram1">
+        <EntityTypeShape EntityType="DB03Model.Anket" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB03Model.Kategori" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB03Model.Kayit" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB03Model.Uye" Width="1.5" PointX="7.125" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="DB03Model.FK_Anket_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DB03Model.FK_Kayit_ToAnket" ManuallyRouted="false" />
+        <AssociationConnector Association="DB03Model.FK_Kayit_ToKategori" ManuallyRouted="false" />
+        <AssociationConnector Association="DB03Model.FK_Kayit_ToUye" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
